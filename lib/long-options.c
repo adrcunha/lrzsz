@@ -21,6 +21,7 @@
 #include <config.h>
 #endif
 
+#include <stdlib.h>
 #include <stdio.h>
 #include <getopt.h>
 #include "long-options.h"

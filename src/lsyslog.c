@@ -21,8 +21,8 @@
 #include "config.h"
 #ifdef ENABLE_SYSLOG
 #include "zglobal.h"
-#include <pwd.h>
 #include <stdlib.h>
+#include <pwd.h>
 #include <string.h>
 #endif
 
@@ -34,6 +34,8 @@
 #  include <varargs.h>
 #  define VA_START(args, lastarg) va_start(args)
 #endif
+
+#include <stdio.h>
 
 void
 #ifdef WAYTOGO

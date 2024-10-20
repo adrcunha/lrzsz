@@ -1008,7 +1008,7 @@ cross_compiling=$ac_cv_prog_cc_cross
 cat > conftest.$ac_ext <<EOF
 #line 1010 "configure"
 #include "confdefs.h"
-main(){return(0);}
+int main(){return(0);}
 EOF
 if { (eval echo configure:1014: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest; then
   ac_cv_prog_cc_works=yes
@@ -1484,6 +1484,7 @@ else
   cat > conftest.$ac_ext <<EOF
 #line 1486 "configure"
 #include "confdefs.h"
+#include <stdlib.h>
 #include <ctype.h>
 #define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
 #define TOUPPER(c) (ISLOWER(c) ? 'A' + ((c) - 'a') : (c))
@@ -1645,7 +1646,7 @@ for ac_kw in inline __inline__ __inline; do
 #include "confdefs.h"
 
 int main() {
-} $ac_kw foo() {
+} $ac_kw int foo() {
 ; return 0; }
 EOF
 if { (eval echo configure:1652: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
@@ -1912,6 +1913,7 @@ else
   cat > conftest.$ac_ext <<EOF
 #line 1914 "configure"
 #include "confdefs.h"
+#include <stdlib.h>
 #include <ctype.h>
 #define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
 #define TOUPPER(c) (ISLOWER(c) ? 'A' + ((c) - 'a') : (c))
@@ -2486,13 +2488,14 @@ else
   cat > conftest.$ac_ext <<EOF
 #line 2488 "configure"
 #include "confdefs.h"
+#include <stdlib.h>
 #include <stdio.h>
 /* If setvbuf has the reversed format, exit 0. */
-main () {
+int main () {
   /* This call has the arguments reversed.
      A reversed system may check and see that the address of main
      is not _IOLBF, _IONBF, or _IOFBF, and return nonzero.  */
-  if (setvbuf(stdout, _IOLBF, (char *) main, BUFSIZ) != 0)
+  if (setvbuf(stdout, (char *) main, _IOLBF, BUFSIZ) != 0)
     exit(1);
   putc('\r', stdout);
   exit(0);			/* Non-reversed systems segv here.  */
@@ -2691,6 +2694,7 @@ else
    The main things grep needs to know about mmap are:
    * does it exist and is it safe to write into the mmap'd area
    * how to use it (BSD variants)  */
+#include <stdlib.h>
 #include <sys/types.h>
 #include <fcntl.h>
 #include <sys/mman.h>
@@ -2735,12 +2739,6 @@ else
 # endif /* no _SC_PAGESIZE */
 
 #endif /* no HAVE_GETPAGESIZE */
-
-#ifdef __cplusplus
-extern "C" { void *malloc(unsigned); }
-#else
-char *malloc();
-#endif
 
 int
 main()
@@ -3020,6 +3018,7 @@ else
   cat > conftest.$ac_ext <<EOF
 #line 3022 "configure"
 #include "confdefs.h"
+#include <stdlib.h>
 find_stack_direction ()
 {
   static char *addr = 0;
@@ -3032,7 +3031,7 @@ find_stack_direction ()
   else
     return (&dummy > addr) ? 1 : -1;
 }
-main ()
+int main ()
 {
   exit (find_stack_direction() < 0);
 }
@@ -3469,8 +3468,9 @@ else
 
 #include <sys/types.h>
 #include <sys/timeb.h>
+#include <stdlib.h>
 #include <stdio.h>
-main ()
+int main ()
 {
   struct timeb s, slast;
   int c = 0;
