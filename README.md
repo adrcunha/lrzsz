@@ -1,13 +1,13 @@
 # lrzsz: free x/y/zmodem implementation
 
-> This is Uwe Ohse's lrzsz with fixes for current compilers (the last official version dates from Decemver 199). The minimal required amount of changes were introduced in order to fix errors when building the tools.
+> This is Uwe Ohse's `lrzsz` with fixes for newer compilers, as the last official version of the tool dates from December 1998. The changes were kept to the minimum required in order to fix errors when building.
 >
-> The original code can be found at https://www.ohse.de/uwe/software/lrzsz.html and the original HTML is reproduced below.
+> The original code and documentation can be found at https://www.ohse.de/uwe/software/lrzsz.html (the original page is reproduced below).
 >
 > #### Tested on
 >
 > * MacOS with Xcode 15
-> * Raspberry Pi with Raspbian 8.3.0
+> * Raspberry Pi with gcc (Raspbian 8.3.0-6+rpi1) 8.3.0
 >
 > with `make fastcheck`.
 
